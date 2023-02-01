@@ -1,0 +1,27 @@
+spring:
+  #  profiles:
+  #    active: dev
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/postavshik?useSSL=false&useUnicode=yes&characterEncoding=UTF-8}
+    username: postgres
+    password: q
+    driver-class-name: org.postgresql.Driver
+    testOnBorrow: true
+    validationQuery: SELECT 1
+    hikari:
+      connectTimeout: 30
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      maximum-pool-size: 4
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    show-sql: false
+    open-in-view: true
+
+server:
+  port: 8081
+
+jwt:
+  jwtSecret: some-temp-secret-key-value$!
+  jwtExpirationMs: 8640000
+#  jwtExpirationMs: 86400
